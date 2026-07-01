@@ -1,11 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscripción a talleres</title>
-</head>
-<body>
 
+    <meta name="description" content="Aplicación para registrar y administrar participantes de talleres.">
+
+    <title>Inscripción a talleres</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+    <header class="encabezado">
+        <h1>Inscripción a talleres</h1>
+        <p>Registra y administra a los participantes de cada taller.</p>
+    </header>
+
+    <main class="contenedor">
+        <section class="formulario-seccion">
+            <h2>Registrar participante</h2>
+
+            <form id="formulario-inscripcion" novalidate>
+                <div class="campo">
+                    <label for="nombre">Nombre completo</label>
+
+                    <input type="text" id="nombre" name="nombre" minlength="3" maxlength="50" autocomplete="name"
+                        required>
+
+                    <small class="mensaje-error" id="error-nombre">
+                    </small>
+                </div>
+
+                <div class="campo">
+                    <label for="correo">Correo electrónico</label>
+
+                    <input type="email" id="correo" name="correo" autocomplete="email" required>
+
+                    <small class="mensaje-error" id="error-correo">
+                    </small>
+                </div>
+
+                <div class="campo">
+                    <label for="confirmar-correo">
+                        Confirmar correo electrónico
+                    </label>
+
+                    <input type="email" id="confirmar-correo" name="confirmarCorreo" autocomplete="email" required>
+
+                    <small class="mensaje-error" id="error-confirmar-correo">
+                    </small>
+                </div>
+
+                <div class="campo">
+                    <label for="edad">Edad</label>
+
+                    <input type="number" id="edad" name="edad" min="16" max="100" step="1" required>
+
+                    <small class="mensaje-error" id="error-edad">
+                    </small>
+                </div>
+
+                <div class="campo">
+                    <label for="taller">Taller</label>
+
+                    <select id="taller" name="taller" required>
+                        <option value="" selected disabled>
+                            Selecciona un taller
+                        </option>
+                        <option value="programacion-web">
+                            Programación web
+                        </option>
+                        <option value="diseno-digital">
+                            Diseño digital
+                        </option>
+                        <option value="marketing-digital">
+                            Marketing digital
+                        </option>
+                    </select>
+
+                    <small class="mensaje-error" id="error-taller">
+                    </small>
+                </div>
+
+                <div class="acciones-formulario">
+                    <button type="submit" id="boton-guardar">
+                        Guardar participante
+                    </button>
+
+                    <button type="reset" id="boton-limpiar">
+                        Limpiar formulario
+                    </button>
+                </div>
+
+                <p id="mensaje-formulario" class="mensaje-formulario" aria-live="polite">
+                </p>
+            </form>
+        </section>
+
+        <section class="participantes-seccion">
+            <div class="titulo-listado">
+                <h2>Participantes registrados</h2>
+
+                <p>
+                    Total:
+                    <span id="total-participantes">0</span>
+                </p>
+            </div>
+
+            <div class="campo">
+                <label for="busqueda">Buscar participante</label>
+
+                <input type="search" id="busqueda" placeholder="Buscar por nombre o correo">
+            </div>
+
+            <p id="sin-participantes">
+                Todavía no existen participantes registrados.
+            </p>
+
+            <div id="lista-participantes" class="lista-participantes" aria-live="polite">
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>Evaluación Unidad III - Programación Web</p>
+    </footer>
 </body>
+
 </html>
