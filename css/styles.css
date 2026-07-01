@@ -1,0 +1,256 @@
+:root {
+    --color-primario: #4f46e5;
+    --color-primario-oscuro: #3730a3;
+    --color-fondo: #f5f7fb;
+    --color-superficie: #ffffff;
+    --color-texto: #1f2937;
+    --color-error: #dc2626;
+    --color-exito: #15803d;
+    --color-borde: #d1d5db;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+}
+
+.encabezado {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        var(--color-primario),
+        var(--color-primario-oscuro)
+    );
+}
+
+.encabezado h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.encabezado p {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+.contenedor {
+    width: min(1100px, calc(100% - 2rem));
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: start;
+}
+
+.formulario-seccion,
+.participantes-seccion {
+    padding: 1.5rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    background-color: var(--color-superficie);
+    box-shadow: 0 8px 24px rgb(31 41 55 / 10%);
+}
+
+.formulario-seccion h2,
+.participantes-seccion h2 {
+    margin-top: 0;
+    color: var(--color-primario-oscuro);
+}
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background-color: #ffffff;
+    font: inherit;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgb(79 70 229 / 20%);
+}
+
+.campo input.invalido,
+.campo select.invalido {
+    border-color: var(--color-error);
+    background-color: #fef2f2;
+}
+
+.mensaje-error {
+    display: block;
+    min-height: 1.25rem;
+    margin-top: 0.25rem;
+    color: var(--color-error);
+    font-size: 0.85rem;
+}
+.acciones-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+button {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#boton-guardar {
+    flex: 1;
+    color: #ffffff;
+    background-color: var(--color-primario);
+}
+
+#boton-guardar:hover {
+    background-color: var(--color-primario-oscuro);
+}
+
+#boton-limpiar {
+    color: var(--color-texto);
+    background-color: #e5e7eb;
+}
+
+button:focus-visible {
+    outline: 3px solid rgb(79 70 229 / 35%);
+    outline-offset: 2px;
+}
+
+.mensaje-formulario {
+    min-height: 1.5rem;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.mensaje-formulario.exito {
+    color: var(--color-exito);
+}
+
+.mensaje-formulario.error {
+    color: var(--color-error);
+}
+
+.titulo-listado {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+}
+
+.titulo-listado p {
+    margin-top: 0;
+    font-weight: 700;
+}
+
+.lista-participantes {
+    display: grid;
+    gap: 1rem;
+}
+
+.tarjeta-participante {
+    padding: 1rem;
+    border: 1px solid var(--color-borde);
+    border-left: 5px solid var(--color-primario);
+    border-radius: 8px;
+    background-color: #f9fafb;
+}
+
+.tarjeta-participante h3 {
+    margin: 0 0 0.5rem;
+}
+
+.tarjeta-participante p {
+    margin: 0.25rem 0;
+}
+
+.acciones-tarjeta {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.boton-editar {
+    color: #ffffff;
+    background-color: #b45309;
+}
+
+.boton-eliminar {
+    color: #ffffff;
+    background-color: var(--color-error);
+}
+
+#sin-participantes {
+    padding: 1rem;
+    text-align: center;
+    color: #6b7280;
+    background-color: #f9fafb;
+    border-radius: 8px;
+}
+
+.pie-pagina {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: #ffffff;
+    background-color: var(--color-primario-oscuro);
+}
+
+.pie-pagina p {
+    margin: 0;
+}
+
+@media (max-width: 800px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .encabezado {
+        padding: 2rem 1rem;
+    }
+
+    .formulario-seccion,
+    .participantes-seccion {
+        padding: 1rem;
+    }
+
+    .titulo-listado {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .acciones-formulario,
+    .acciones-tarjeta {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
